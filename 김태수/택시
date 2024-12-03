@@ -1,1 +1,25 @@
 --후방 택시 등, 앞 유리창 LCD 예약중 표시
+#include <LiquidCrystal.h>
+
+// 핀 연결 설정 (RS, E, D4, D5, D6, D7)
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+  // LCD 초기화
+  lcd.begin(16, 2);
+
+  // 초기 화면 표시
+  lcd.setCursor(0, 0);    // 첫 번째 줄, 첫 번째 칸
+  lcd.print("예약중");     // "예약중" 표시
+}
+
+void loop() {
+  delay(5000);            // 5초 대기
+
+  // 화면 내용 변경
+  lcd.clear();            // 기존 화면 지우기
+  lcd.setCursor(0, 0);    // 첫 번째 줄, 첫 번째 칸
+  lcd.print("손님 있음");  // "손님 있음" 표시
+
+  while (1);              // 프로그램 종료 후 무한 대기
+}
